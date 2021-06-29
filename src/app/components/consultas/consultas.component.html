@@ -1,0 +1,45 @@
+<div class="full">
+  <div class="container-fluid p-3">
+    <div class=" row d-flex justify-content-evenly">
+      <div class="col-lg-4 col-md-5 col-sm-12">
+        <div class="row">
+          <div class="col-12 bg-white p-3 radius">
+            <div class="form-group">
+              <form (submit)="crearConsulta()">
+                <label for="nombre" >Nombre del paciente</label>
+                <input [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}" type="text" class="form-control" id="nombre">
+                <label for="tiempo" >Hora</label>
+                <input [(ngModel)]="tiempo" [ngModelOptions]="{standalone: true}" type="time" class="form-control" id="tiempo">
+                <label for="fecha" >fecha</label>
+                <input [(ngModel)]="fecha" [ngModelOptions]="{standalone: true}" type="date" class="form-control" id="fecha">
+                <label for="observaciones">Observaciones</label>
+                <textarea [(ngModel)]="observaciones" [ngModelOptions]="{standalone: true}" id="observaciones" rows="2" class="form-control"></textarea>
+                <button type="submit" class="form-control mt-2 btn btn-primary">Agregar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class=" row" *ngIf="consultas.length > 0">
+          <div class=" col-12 bg-white p-3 radius">
+            <div  *ngFor="let item of consultas; let i = index" class="card" style="width: 100%;">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.nombre }}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">hora: {{ item.tiempo }}</li>
+                <li class="list-group-item">fecha: {{ item.fecha }}</li>
+              </ul>
+              <div class="card-body">
+                <p class="card-text">observaciones: {{item.observaciones}}</p>
+              </div>
+              <div class="card-body">
+                <a class="card-link" style="cursor: pointer;" (click)="eliminarConsulta(i)">eliminar</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

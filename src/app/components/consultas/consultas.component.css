@@ -1,0 +1,10 @@
+
+div.full {
+  height: 100vh;
+  background-image: url('https://www.ravanetto.com/blog-ravanetto/wp-content/uploads/2020/09/agenda-de-trabajo-2021-768x543.jpg');
+  background-size: cover;
+  
+}
+div.radius{
+  border-radius: 15px;
+}
